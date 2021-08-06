@@ -25,7 +25,8 @@ const bannerStyle = {
   maxWidth: '100%'
 }
 
-export const query = graphql`
+// Page query. 
+/* export const query = graphql`
   query SiteInfo {
     site {
       siteMetadata {
@@ -34,4 +35,4 @@ export const query = graphql`
       }
     }
   }
-`
+` */
