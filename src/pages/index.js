@@ -11,10 +11,14 @@ export default function Home() {
           <h2>Design</h2>
           <h2>Develop & Deploy</h2>
           <p>UX designer & web developer based in Sydney.</p>
-          <Link className={styles.btm} to="/projects">My Portfiliio Projects</Link>
+          <Link className={styles.btn} to="/projects">My Portfiliio Projects</Link>
         </div>
+        <img src="/banner.png" alt="site banner" style={bannerStyle} />
       </section>
     </Layout>
   ) 
+}
 
+const bannerStyle = {
+  maxWidth: '100%'
 }
