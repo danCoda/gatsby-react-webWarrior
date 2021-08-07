@@ -1,9 +1,11 @@
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from '../components/Layout'
 import * as styles from '../styles/home.module.css'
+import { GatsbyImage as Img, getImage } from "gatsby-plugin-image"
 
 export default function Home(props) {
+  console.log(props);
   return (
     <Layout>
       <section className={styles.header}>
@@ -13,7 +15,7 @@ export default function Home(props) {
           <p>UX designer & web developer based in Sydney.</p>
           <Link className={styles.btn} to="/projects">My Portfiliio Projects</Link>
         </div>
-        <img src="/banner.png" alt="site banner" style={bannerStyle} />
+        <Img image={getImage(props.data.file)} alt="Banner" />
       </section>
     </Layout>
   ) 
@@ -22,3 +24,17 @@ export default function Home(props) {
 const bannerStyle = {
   maxWidth: '100%'
 }
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "banner.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+  }
+`
