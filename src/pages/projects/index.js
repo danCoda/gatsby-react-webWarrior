@@ -33,8 +33,8 @@ export default function Projects({ data }) {
 
 // Export page query.
 export const query = graphql`
-  query ProjectsPage {
-    allMarkdownRemark {
+  query PrjectsPage {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           slug
